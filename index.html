@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Remon Sabry Soliman — Portfolio</title>
+    <style>
+        :root {
+            --bg-dark: #2c2c2c;
+            --header-dark: #3a3a3a;
+            --tab-blue: #003366;
+            --tab-blue-dark: #002b59;
+            --card-white: rgba(255,255,255,0.95);
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, Arial, sans-serif;
+            background: var(--bg-dark);
+            color: #fff;
+        }
+
+        header {
+            background: var(--header-dark);
+            padding: 28px 18px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+        }
+
+            header h1 {
+                margin: 0;
+                font-size: 28px;
+                font-weight: 700;
+                color: #fff;
+            }
+
+            header p {
+                margin: 6px 0 0;
+                color: #d0d0d0;
+                font-size: 15px;
+            }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            padding: 18px;
+            background: transparent;
+        }
+
+        .dropbtn {
+            background: var(--tab-blue);
+            color: #fff;
+            border: 0;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            letter-spacing: 0.1px;
+        }
+
+            .dropbtn:active {
+                transform: translateY(1px);
+            }
+
+        /* Expanded section below nav */
+        .section {
+            max-height: 0;
+            overflow: hidden;
+            background: var(--card-white);
+            color: #111;
+            margin: 0 auto 20px;
+            padding: 0 22px;
+            border-radius: 8px;
+            box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+            width: 90%;
+            max-width: 800px;
+            opacity: 0;
+            transition: max-height .4s ease, opacity .4s ease, padding .4s ease;
+        }
+
+            .section.open {
+                max-height: 700px; /* enough for content */
+                padding: 20px 22px;
+                opacity: 1;
+            }
+
+            .section h2 {
+                margin-top: 0;
+                color: var(--tab-blue-dark);
+            }
+
+            .section a {
+                color: var(--tab-blue-dark);
+                text-decoration: none;
+            }
+
+                .section a:hover {
+                    text-decoration: underline;
+                }
+
+        /* Contact row (always visible) */
+        .contact {
+            margin: 28px auto;
+            max-width: 980px;
+            background: rgba(255,255,255,0.06);
+            padding: 14px 18px;
+            border-radius: 10px;
+            text-align: center;
+            color: #eee;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        }
+
+            .contact .item {
+                display: inline-block;
+                margin: 0 22px;
+                font-size: 15px;
+                color: #e8e8e8;
+            }
+
+            .contact a {
+                color: #bfe0ff;
+                text-decoration: none;
+            }
+
+                .contact a:hover {
+                    text-decoration: underline;
+                }
+
+        @media (max-width:640px) {
+            nav {
+                gap: 10px;
+                padding: 12px;
+            }
+
+            .dropbtn {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .contact .item {
+                display: block;
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Remon Sabry Soliman</h1>
+        <p>Biomedical Engineer | Embedded Systems | Signal Processing</p>
+    </header>
+
+    <nav>
+        <button class="dropbtn" onclick="toggleSection('about')">About</button>
+        <button class="dropbtn" onclick="toggleSection('experience')">Experience</button>
+        <button class="dropbtn" onclick="toggleSection('projects')">Projects</button>
+        <button class="dropbtn" onclick="toggleSection('education')">Education</button>
+        <button class="dropbtn" onclick="toggleSection('certifications')">Certifications</button>
+    </nav>
+
+    <!-- Sections -->
+    <div id="about" class="section">
+        <h2>About</h2>
+        <p>I am a final-year Biomedical Engineering & Systems student (Al Shorouk Academy — expected 2026). I build MATLAB GUIs and Arduino prototypes for medical/IoT use-cases, and I have customer-facing experience and leadership through AIESEC.</p>
+        <p><a href="Remon_Sabry_CV.pdf" target="_blank">Download CV (PDF)</a></p>
+    </div>
+
+    <div id="experience" class="section">
+        <h2>Experience</h2>
+        <ul>
+            <li>Customer Sales Executive — Vodafone Ireland. (support & sales)</li>
+            <li>Dispatcher — Jet-Black luxury service (logistics)</li>
+            <li>Customer Service - Pampered Chef </li>
+            <li>AIESEC — B2C Member & Team Leader (branding, outreach)</li>
+        </ul>
+    </div>
+
+    <div id="projects" class="section">
+        <h2>Projects</h2>
+        <ul>
+            <li><a href="#" target="_blank">ECG Signal Analysis (MATLAB GUI)</a></li>
+            <li><a href="#" target="_blank">Smart Patient Monitoring System (Arduino)</a></li>
+            <li><a href="#" target="_blank">Pharmacy Database (MySQL)</a></li>
+            <li><a href="#" target="_blank">C/C++: Calculator & Eye Booking System (A+)</a></li>
+        </ul>
+    </div>
+
+    <div id="education" class="section">
+        <h2>Education</h2>
+        <p>B.Sc. Biomedical Engineering & Systems — Al Shorouk Academy (Expected 2026)</p>
+    </div>
+
+    <div id="certifications" class="section">
+        <h2>Certifications</h2>
+        <ul>
+            <li>
+                C & C++ (Beginner + Advanced)
+                — <a href="assets/certifications/cpp-cert.png" target="_blank">View Certificate</a>
+            </li>
+            <li>
+                Arduino Development
+                — <a href="assets/certifications/arduino-cert.png" target="_blank">View Certificate</a>
+            </li>
+            <li>
+                MySQL (two courses)
+                — <a href="assets/certifications/mysql-cert1.png" target="_blank">Course 1</a>,
+                <a href="assets/certifications/mysql-cert2.png" target="_blank">Course 2</a>
+            </li>
+            <li>
+                ICDL — English & Human Development
+                — <a href="assets/certifications/icdl-cert.png" target="_blank">View Certificate</a>
+            </li>
+            <li>
+                English C1+
+                — <a href="assets/certifications/english-c1.png" target="_blank">View Certificate</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- always-visible contact row -->
+    <div class="contact" role="contentinfo">
+        <span class="item">📧 <a href="mailto:remonsabry44@gmail.com">remonsabry44@gmail.com</a></span>
+        <span class="item">📱 <a href="tel:+201559619555">+20 155 961 9555</a></span>
+        <span class="item">🔗 <a href="https://linkedin.com/in/remon-soliman-843a28178" target="_blank">LinkedIn</a></span>
+        <span class="item">📍 Cairo, Egypt</span>
+    </div>
+
+    <script>
+        function toggleSection(id) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(sec => {
+                if (sec.id !== id) {
+                    sec.classList.remove('open');
+                }
+            });
+            document.getElementById(id).classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
