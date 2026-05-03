@@ -43,6 +43,7 @@
         nav {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 18px;
             padding: 18px;
             background: transparent;
@@ -63,7 +64,6 @@
                 transform: translateY(1px);
             }
 
-        /* Expanded section below nav */
         .section {
             max-height: 0;
             overflow: hidden;
@@ -76,11 +76,11 @@
             width: 90%;
             max-width: 800px;
             opacity: 0;
-            transition: max-height .4s ease, opacity .4s ease, padding .4s ease;
+            transition: max-height .6s ease, opacity .6s ease, padding .4s ease;
         }
 
             .section.open {
-                max-height: 700px; /* enough for content */
+                max-height: 3500px; 
                 padding: 20px 22px;
                 opacity: 1;
             }
@@ -88,18 +88,31 @@
             .section h2 {
                 margin-top: 0;
                 color: var(--tab-blue-dark);
+                border-bottom: 2px solid var(--tab-blue);
+                padding-bottom: 5px;
+            }
+            
+            .section h3 {
+                color: #333;
+                margin-bottom: 5px;
             }
 
             .section a {
                 color: var(--tab-blue-dark);
                 text-decoration: none;
+                font-weight: bold;
             }
 
                 .section a:hover {
                     text-decoration: underline;
                 }
+                
+            .skills-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
 
-        /* Contact row (always visible) */
         .contact {
             margin: 28px auto;
             max-width: 980px;
@@ -113,7 +126,7 @@
 
             .contact .item {
                 display: inline-block;
-                margin: 0 22px;
+                margin: 0 15px;
                 font-size: 15px;
                 color: #e8e8e8;
             }
@@ -132,15 +145,16 @@
                 gap: 10px;
                 padding: 12px;
             }
-
             .dropbtn {
                 padding: 8px 12px;
                 font-size: 14px;
             }
-
             .contact .item {
                 display: block;
                 margin: 8px 0;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -149,86 +163,121 @@
 
     <header>
         <h1>Remon Sabry Soliman</h1>
-        <p>Biomedical Engineer | Embedded Systems | Signal Processing</p>
+        <p>Biomedical Engineer | Embedded Systems | Technical Support | B2B/B2C Sales</p>
     </header>
 
     <nav>
-        <button class="dropbtn" onclick="toggleSection('about')">About</button>
+        <button class="dropbtn" onclick="toggleSection('about')">About & Skills</button>
         <button class="dropbtn" onclick="toggleSection('experience')">Experience</button>
         <button class="dropbtn" onclick="toggleSection('projects')">Projects</button>
         <button class="dropbtn" onclick="toggleSection('education')">Education</button>
         <button class="dropbtn" onclick="toggleSection('certifications')">Certifications</button>
     </nav>
 
-    <!-- Sections -->
-    <div id="about" class="section">
-        <h2>About</h2>
-        <p>I am a final-year Biomedical Engineering & Systems student (Al Shorouk Academy — expected 2026). I build MATLAB GUIs and Arduino prototypes for medical/IoT use-cases, along with basic understanding of Networking, and I have customer-facing experience and leadership through AIESEC.</p>
-        <p><a href="Remon_Sabry_CV.pdf" target="_blank">Download CV (PDF)</a></p>
+    <!-- ABOUT & SKILLS -->
+    <div id="about" class="section open">
+        <h2>About Me</h2>
+        <p>I am a final-year Biomedical Engineering & Systems student (Al Shorouk Academy — expected 2026). I possess a strong foundation in hardware engineering, robotics, and embedded systems, paired with proven experience in diverse sales environments and dedicated technical support. I excel at diagnosing complex issues, bridging the gap between hardware and software integrations, and ensuring seamless customer experiences.</p>
+        
+        <h3>Technical Arsenal</h3>
+        <div class="skills-grid">
+            <div>
+                <strong>Hardware & PCB Design:</strong><br>
+                ESP Microcontrollers, STM32, Arduino, KiCad, Proteus.
+            </div>
+            <div>
+                <strong>Robotics & Modeling:</strong><br>
+                Control Theory, Computer Vision, AutoCAD, Fusion 360, 3D Printing.
+            </div>
+            <div>
+                <strong>Cloud & Web (Full-Stack):</strong><br>
+                Next.js, HTML/CSS, Supabase (BaaS), MySQL, Vercel, GitHub.
+            </div>
+            <div>
+                <strong>Data, AI & Workflows:</strong><br>
+                DeepSeek, Claude, Python, ESP IDE, C++, MATLAB.
+            </div>
+        </div>
+        <p style="margin-top: 15px;"><a href="Remon_Sabry_CV.pdf" target="_blank">📄 Download Professional CV (PDF)</a></p>
     </div>
 
+    <!-- EXPERIENCE -->
     <div id="experience" class="section">
-        <h2>Experience</h2>
+        <h2>Experience & Clinical Training</h2>
         <ul>
-            <li>Customer Sales Executive — Vodafone Ireland. (support & sales)</li>
-            <li>Dispatcher — Jet-Black luxury service (logistics)</li>
-            <li>Customer Service - Pampered Chef </li>
-            <li>AIESEC — B2C Member & Team Leader (branding, outreach)</li>
+            <li><strong>Intensive Care Unit (ICU) & Dental Unit Technical Training:</strong> Gained hands-on experience with the operational mechanics, troubleshooting, and clinical application of critical care and dental life-support equipment.</li>
+            <li><strong>Customer Sales Executive — Vodafone Ireland:</strong> Navigated B2C sales, managed client accounts, and provided dedicated technical support to resolve complex service issues and ensure retention.</li>
+            <li><strong>Dispatcher — Jet-Black:</strong> Managed high-stakes logistics, ensuring precise communication and operational efficiency.</li>
+            <li><strong>Customer Service — Pampered Chef:</strong> Handled client inquiries, resolved pain points, and maintained high satisfaction metrics.</li>
+            <li><strong>Team Leader — AIESEC:</strong> Led B2C outreach and branding campaigns, refining public speaking and team management skills.</li>
         </ul>
     </div>
 
-   <div id="projects" class="section">
-    <h2>Projects</h2>
-    <ul>
-        <li><a href="ecg-analysis.zip" target="_blank">ECG Signal Analysis (MATLAB GUI)</a></li>
-        <li><a href="smart-monitoring.zip" target="_blank">Smart Patient Monitoring System (Arduino)</a></li>
-        <li><a href="pharmacy-database.zip" target="_blank">Pharmacy Database (MySQL)</a></li>
-        <li><a href="calculator-eye.zip" target="_blank">C/C++: Calculator & Eye Booking System</a></li>
-        <li><a href="networking-topology.zip" target="_blank">Cisco and Networking Topology</a></li>
+    <!-- PROJECTS -->
+    <div id="projects" class="section">
+        <h2>Engineering & Development Projects</h2>
 
-        <!-- NEW: HTML Projects -->
-        <li>HTML Projects:
-    <ul>
-        <li><a href="https://remonsabry.github.io/project1" target="_blank">Project 1 Website</a></li>
-        <li><a href="https://remonsabry.github.io/project2" target="_blank">Project 2 Website</a></li>
-        <li><a href="https://remonsabry.github.io/project3" target="_blank">Project 3 Website</a></li>
-    </ul>
-</li>
-    </ul>
-</div>
-  
+        <h3>🦾 Robotics & Control Systems</h3>
+        <ul>
+            <li><strong>Telemedicine Robotic Arm & Computer Vision:</strong> Engineered a remote-controlled robotic hand for telemedicine applications, focusing on classical and modern control system implementation. The project integrates custom 3D-printed mechanics, computer vision (CV), web-based HTML control interfaces, and an embedded controller programmed via the ESP IDE. <a href="https://github.com/RemonSoliman1/Telemedicine-Artificial-hand-" target="_blank">[View Code]</a></li>
+            <li><strong>(Ongoing) Autonomous Self-Balancing AI Robot:</strong> Engineering a dynamic balancing system powered by an ESP32-S3 N16R8 (Alibaba AI variant) with custom PID control, N20 motors, and infrared obstacle avoidance. Integrated a microphone, speaker, and dedicated AI chip to host an Alexa-like voice assistant capable of live web search, natural conversation, and executing automated actions such as calendar management.</li>
+        </ul>
 
+        <h3>🔌 Embedded Systems, IoT & PCB</h3>
+        <ul>
+            <li><strong>Smart Infant Incubator:</strong> Programmed in C++, this project showcases the integration of hardware sensors and software logic to establish and maintain the optimal environmental conditions necessary for infant growth. <a href="https://github.com/RemonSoliman1/Incubator" target="_blank">[View Code]</a></li>
+            <li><strong>PCB Design & Circuit Simulation (KiCad/Proteus):</strong> Independently designed and simulated complex circuit schematics and PCB layouts, including OPAMP configurations and sensor logic, utilizing KiCad and Proteus. <a href="https://github.com/RemonSoliman1/OPAMPs" target="_blank">[View Code]</a></li>
+            <li><strong>Custom Measurement Hardware:</strong> Developed diagnostic hardware using an STM32 Blue Pill, featuring an integrated I2C OLED display, auto wake-up functionality, and a custom 3D-printed enclosure.</li>
+        </ul>
 
-    <div id="education" class="section">
-        <h2>Education</h2>
-        <p>B.Sc. Biomedical Engineering & Systems — Al Shorouk Academy (Expected 2026)</p>
+        <h3>🌐 Web Development & Cloud Architecture</h3>
+        <ul>
+            <li><strong>Full-Stack E-Commerce & Customer Service Platform:</strong> Developing a comprehensive system for desktop and mobile utilizing JavaScript, Next.js and Supabase. Includes a customer-facing storefront, a dynamic admin dashboard with database pre-filtering, and an integrated Telegram bot system for seamless customer access and live chat support. <a href="https://github.com/RemonSoliman1/ecommerce-system" target="_blank">[View Code]</a></li>
+            <li><strong>Global Gender Gap Dashboard (2019–2024):</strong> Adaptive data visualization website comparing the Philippines and Vietnam. Features interactive graphs with toggleable legends, integration of large verified datasets, and direct data-file download functionality. <a href="https://github.com/RemonSoliman1/Adaptive-Website-Presentation-on-Philippines-vs-Vietnam-Global-Gender-Gap-Dashboard-2019-2024-" target="_blank">[View Code]</a></li>
+            <li><strong>IoT Smart Environment Web App:</strong> Hardware-integrated web application (Wi-Fi/Bluetooth) tracking temperature and humidity history. Allows remote threshold setting, toggling hardware displays, and customizing LEDs. <a href="https://github.com/RemonSoliman1/Temp-humidity-tracking-app-website" target="_blank">[View Code]</a></li>
+            <li><strong>NCBI Adaptive Presentation:</strong> An interactive, web-based presentation platform built for dynamic biomedical content delivery. <a href="https://github.com/RemonSoliman1/ncbi-presentation" target="_blank">[View Code]</a></li>
+            <li><strong>Spectrophotometer Data Visualizer:</strong> Built an HTML web display interface for visualizing sample measurement data from an Arduino-based spectrophotometer. <a href="https://github.com/RemonSoliman1/spectro-data" target="_blank">[View Code]</a></li>
+        </ul>
+
+        <h3>📊 Software & Data Applications</h3>
+        <ul>
+            <li><strong>Eye Clinic Booking Application:</strong> Developed a core scheduling and management application for clinical operations. <a href="https://github.com/RemonSoliman1/Eye-Centre-Booking-application" target="_blank">[View Code]</a></li>
+            <li><strong>Networking Topology:</strong> Completed various exercises using Cisco networking principles to design and implement secure network topologies. <a href="https://github.com/RemonSoliman1/Networking_topology-" target="_blank">[View Code]</a></li>
+        </ul>
     </div>
 
-  <div id="certifications" class="section">
-    <h2>Certifications</h2>
-    <ul>
-        <li>C & C++ (Beginner + Advanced) — <a href="cpp-cert..pdf" target="_blank">View Certificate</a></li>
-        <li>Arduino Development — <a href="arduino-cert.pdf" target="_blank">View Certificate</a></li>
-        <li>MySQL — <a href="mysql-cert1.pdf" target="_blank">Course 1</a>, <a href="mysql-cert2.pdf" target="_blank">Course 2</a></li>
-        <li>ICDL — <a href="icdl-cert.pdf" target="_blank">View Certificate</a></li>
-        <li>Technology Innovation Commercialization Office (TICO) — <a href="tico-cert.pdf" target="_blank">View Certificate</a></li>
-        <li>Python — <a href="python-cert.pdf" target="_blank">View Certificate</a></li>
-        <li>English C1+ — <a href="english-c1.pdf" target="_blank">View Certificate</a></li>
+    <!-- EDUCATION -->
+    <div id="education" class="section">
+        <h2>Education</h2>
+        <p><strong>B.Sc. Biomedical Engineering & Systems</strong><br>Al Shorouk Academy — Expected Graduation: 2026</p>
+        <ul>
+            <li>Currently finalizing comprehensive academic research on project management frameworks and FIDIC construction contracts.</li>
+        </ul>
+    </div>
 
-        <!-- NEW COURSES BELOW -->
-        <li>Dental Unit Training — <a href="dental-unit-cert.pdf" target="_blank">View Certificate</a></li>
-        <li>Intensive Care Unit (ICU) Course — <a href="icu-course-cert.pdf" target="_blank">View Certificate</a></li>
-    </ul>
-</div>
+    <!-- CERTIFICATIONS -->
+    <div id="certifications" class="section">
+        <h2>Certifications</h2>
+        <ul>
+            <li>C & C++ (Beginner + Advanced) — <a href="cpp-cert.pdf" target="_blank">View Certificate</a></li>
+            <li>Arduino Development — <a href="arduino-cert.pdf" target="_blank">View Certificate</a></li>
+            <li>MySQL (Courses 1 & 2) — <a href="mysql-cert.pdf" target="_blank">View Certificate</a></li>
+            <li>Python — <a href="python-cert.pdf" target="_blank">View Certificate</a></li>
+            <li>Technology Innovation Commercialization Office (TICO) — <a href="tico-cert.pdf" target="_blank">View Certificate</a></li>
+            <li>ICDL & Microsoft Office Proficiency — <a href="icdl-cert.pdf" target="_blank">View Certificate</a></li>
+            <li>English C1+ — <a href="english-cert.pdf" target="_blank">View Certificate</a></li>
+            <li>Dental Unit Technical Training — <a href="dental-cert.pdf" target="_blank">View Certificate</a></li>
+            <li>Intensive Care Unit (ICU) Course — <a href="icu-cert.pdf" target="_blank">View Certificate</a></li>
+        </ul>
+    </div>
 
-
-
-    <!-- always-visible contact row -->
+    <!-- CONTACT -->
     <div class="contact" role="contentinfo">
         <span class="item">📧 <a href="mailto:remonsabry44@gmail.com">remonsabry44@gmail.com</a></span>
         <span class="item">📱 <a href="tel:+201559619555">+20 155 961 9555</a></span>
         <span class="item">🔗 <a href="https://linkedin.com/in/remon-soliman-843a28178" target="_blank">LinkedIn</a></span>
-        <span class="item">📍 Cairo, Egypt</span>
+        <span class="item">💻 <a href="https://github.com/RemonSoliman1" target="_blank">GitHub</a></span>
+        <span class="item">📍 Suez, Egypt</span>
     </div>
 
     <script>
@@ -244,13 +293,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
